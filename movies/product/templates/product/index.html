@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <style>
+      .startup-block {
+        border: 1px solid #ddd;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+
+      .startup-block a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+      }
+
+      .video-iframe {
+        width: 560px;
+        height: 315px;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background-color: #f2f2f2;
+      }
+
+      .logo {
+          font-size: 24px;
+          font-weight: bold;
+      }
+
+      .search-box {
+          flex-grow: 1;
+          text-align: center;
+      }
+
+      .profile-button,
+      .add-startup-button {
+          background-color: #4CAF50;
+          color: white;
+          padding: 10px 20px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin-left: 10px;
+          cursor: pointer;
+      }
+
+      .search-box {
+          width: 300px;
+          height: 30px;
+          border: none;
+          border-radius: 5px;
+          padding: 5px;
+      }
+
+      .footer {
+          background-color: #f2f2f2;
+          padding: 20px;
+          text-align: center;
+          font-size: 14px;
+          color: #666;
+      }
+      
+      
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="logo">Some lessons</div>
+      <div class="search-box">
+        <input type="text" placeholder="Поиск по сайту">
+      </div>
+      <a href="#" class="profile-button">My profile</a>
+      <a href="#" class="add-startup-button">Add lesson</a>
+    </div>
+    <h1>A lesson for a studying</h1>
+
+    <div class="row">
+
+      {% for move in movie%}
+        <div class="startup-block">
+          <h2>
+            <a href="#">{{ move.title }}</a>
+          </h2>
+          <p>
+            {{ move.description }}
+          </p>
+          <iframe class="video-iframe" 
+                  src="{{ move.video }}" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+            </iframe>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="footer">
+        <a href="#" class="footer-link">Контакты</a>
+        <a href="#" class="footer-link">Условия использования</a>
+        <a href="#" class="footer-link">Политика конфиденциальности</a>
+    </div>
+    
+  </body>
+</html>
